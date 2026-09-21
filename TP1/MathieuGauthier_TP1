@@ -2,7 +2,8 @@ import json
 import sys
 import os
 from PySide6.QtWidgets import QApplication, QHBoxLayout, QLineEdit,QMessageBox, QPushButton, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QLabel
-from PySide6.QtCore import Qt, QFileInfo
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QColor, QPalette
 
 
 #----------------------------------- Les Fonctions --------------------------------------------------
@@ -76,6 +77,7 @@ for row, jsonitem in enumerate(data):
 # Ici je set mes variables pour créer l'interface graphique.
 interface = QWidget()
 interface.setWindowTitle("Tableau de données JSON")
+interface.setFixedSize(800,600)
 
 # Ici je set ma variable pour la barre de recherche.
 recherche = QLineEdit()
