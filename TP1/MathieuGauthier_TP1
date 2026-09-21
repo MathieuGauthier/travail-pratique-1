@@ -78,7 +78,7 @@ for row, jsonitem in enumerate(data):
 
 
 # Ici je set mes variables pour créer l'interface graphique.
-interface = QWidget()
+interface = QLabel()
 interface.setWindowTitle("Tableau de données JSON")
 interface.setFixedSize(800,600)
 
