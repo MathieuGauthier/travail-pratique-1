@@ -6,6 +6,10 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QPalette
 
 
+#-------------------------------------- Files -------------------------------------------------------
+#C:\Users\User\Desktop\NAD\Python\TP1\data_small.json
+#C:\Users\User\Desktop\NAD\Python\TP1\data_large.json
+
 #----------------------------------- Les Fonctions --------------------------------------------------
 # Function to load a JSON file and handle errors
 def load_json_file(file_path):
@@ -73,16 +77,17 @@ for row, jsonitem in enumerate(data):
         table.setItem(row, columns, QTableWidgetItem(str(value)))
 
 
-    
 # Ici je set mes variables pour créer l'interface graphique.
 interface = QWidget()
 interface.setWindowTitle("Tableau de données JSON")
 interface.setFixedSize(800,600)
 
+
 # Ici je set ma variable pour la barre de recherche.
 recherche = QLineEdit()
 recherche.setPlaceholderText("Rechercher :")
 recherche.textChanged.connect(lambda text: researching(text))
+
 
 # Ici je set les varibles pour des bouttons.
 bouton_c = QPushButton("Croissant")
@@ -90,13 +95,13 @@ bouton_d = QPushButton("Décroissant")
 bouton_c.clicked.connect(lambda: tri("Croissant"))
 bouton_d.clicked.connect(lambda: tri("Décroissant"))
 
+
 # Ici pour afficher les données du fichier JSON.
 file_name = os.path.basename(file_path)
 file_size = os.path.getsize(file_path)
 number_elements = len(data)
 file_data = QLabel()
 file_data.setText(f"Name : {file_name}\n"f"Size : {file_size} bytes\n" f"Number of elements : {number_elements}")
-
 
 
 # Ici Je set ma varible pour la disposition mes bottons dans l'interface.
@@ -114,5 +119,3 @@ layout_v.addWidget(table)
 interface.setLayout(layout_h)
 interface.show()
 sys.exit(app.exec())
-
-#C:\Users\User\Desktop\NAD\Python\TP1\data_small.json
