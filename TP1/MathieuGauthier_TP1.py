@@ -3,7 +3,6 @@ import sys
 import os
 from PySide6.QtWidgets import QApplication, QHBoxLayout, QLineEdit,QMessageBox, QPushButton, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QLabel
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor, QPalette
 
 
 #-------------------------------------- Files -------------------------------------------------------
