@@ -52,7 +52,7 @@ def researching(search_text):
                 match = True
                 break
 
-        table.setRowHidden(row, not match)
+        table.setRowHidden(row, not match) #cache une ROW si elle ne match pas avec la recherhce.
 
 #----------------------------------------------- L'interface ----------------------------------------------------------
 
@@ -71,8 +71,8 @@ table.setHorizontalHeaderLabels(data[0].keys())
 
 
 # Double boucle qui permet de remplir le tableau avec les données du JSON (itération).
-for row, jsonitem in enumerate(data):
-    for columns, (key, value) in enumerate(jsonitem.items()):
+for row, json_item in enumerate(data):
+    for columns, (key, value) in enumerate(json_item.items()):
         table.setItem(row, columns, QTableWidgetItem(str(value)))
 
 
@@ -85,7 +85,7 @@ interface.setFixedSize(800,600)
 # Ici je set ma variable pour la barre de recherche.
 recherche = QLineEdit()
 recherche.setPlaceholderText("Rechercher :")
-recherche.textChanged.connect(lambda text: researching(text))
+recherche.textChanged.connect(lambda text: researching(text)) #lambda (argument): (Expression)
 
 
 # Ici je set les varibles pour des bouttons.
@@ -96,6 +96,7 @@ bouton_d.clicked.connect(lambda: tri("Décroissant"))
 
 
 # Ici pour afficher les données du fichier JSON.
+# os.path.functon me permet d'aller extraire une section ou une data spécifique d'un fichier.
 file_name = os.path.basename(file_path)
 file_size = os.path.getsize(file_path)
 number_elements = len(data)
@@ -106,7 +107,7 @@ file_data.setText(f"Name : {file_name}\n"f"Size : {file_size} bytes\n" f"Number 
 # Ici Je set ma varible pour la disposition mes bottons dans l'interface.
 layout_v = QVBoxLayout(interface) 
 layout_h = QHBoxLayout() 
-layout_v.addLayout(layout_h) # addition les 2 layouts pour let set une fois.
+layout_v.addLayout(layout_h) # addition les 2 layouts pour les set une fois.
 
 layout_v.addWidget(file_data)
 layout_v.addWidget(bouton_c)
